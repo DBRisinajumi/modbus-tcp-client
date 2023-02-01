@@ -69,7 +69,7 @@ trait StreamHandler
                     }
                     if (!empty($data)) {
                         if ($logger) {
-                            $logger->debug("Stream {$streamId} @ index: {$streamIndex} received data: ", unpack('H*', $data));
+                            $logger->debug("Stream {$streamId} @ index: {$streamIndex} received data: " . bin2hex($data));
                         }
                         $packetData = ($result[$streamIndex] ?? b'') . $data;
                         $result[$streamIndex] = $packetData;
